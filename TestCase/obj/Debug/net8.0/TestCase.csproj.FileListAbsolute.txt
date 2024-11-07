@@ -1,0 +1,14 @@
+C:\Users\Kate\Desktop\TestCase\TestCase\bin\Debug\net8.0\TestCase.exe
+C:\Users\Kate\Desktop\TestCase\TestCase\bin\Debug\net8.0\TestCase.deps.json
+C:\Users\Kate\Desktop\TestCase\TestCase\bin\Debug\net8.0\TestCase.runtimeconfig.json
+C:\Users\Kate\Desktop\TestCase\TestCase\bin\Debug\net8.0\TestCase.dll
+C:\Users\Kate\Desktop\TestCase\TestCase\bin\Debug\net8.0\TestCase.pdb
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.AssemblyInfoInputs.cache
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.AssemblyInfo.cs
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.csproj.CoreCompileInputs.cache
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.dll
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\refint\TestCase.dll
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.pdb
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\TestCase.genruntimeconfig.cache
+C:\Users\Kate\Desktop\TestCase\TestCase\obj\Debug\net8.0\ref\TestCase.dll
