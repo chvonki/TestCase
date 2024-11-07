@@ -11,9 +11,10 @@ public abstract class StorageObject
     public bool IsStorageLife { get; set; } // флаг на тип даты (какая дата пришла)
     public double Volume { get; set; } // объем
 
-    public StorageObject(double width, double height,
+    public StorageObject(int id, double width, double height,
                          double depth, double weigth)
     {
+        Id = id;
         Width = width;
         Height = height;
         Depth = depth;

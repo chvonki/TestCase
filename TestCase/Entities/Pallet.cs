@@ -3,8 +3,8 @@ namespace TestCase.Entities;
 public class Pallet : StorageObject
 {
     public List<Box>? boxes;
-    public Pallet(double width, double height, double depth, double weight)
-    : base(width, height, depth, weight)
+    public Pallet(int id, double width, double height, double depth, double weight = 30.0)
+    : base(id, width, height, depth, weight)
     {
         boxes = new();
     }
@@ -19,7 +19,7 @@ public class Pallet : StorageObject
         StorageLife = boxes!.Min(b => b.StorageLife);
     }
 
-    public void AddBox(Box box) // при добавлении коробки нужно пересчитать объем и вес
+    public void AddBox(Box box) // при добавлении коробки нужно пересчитать объем, вес и дату
     {
         if (IsBoxSizeFit(box))
         {
@@ -39,14 +39,21 @@ public class Pallet : StorageObject
     {
         if (boxes is not null)
         {
-            var item = (Box)boxes.Where(b => b.Id == id);
+            var item = boxes.First(b => b.Id == id);
+            if (item is not null)
+            {
+                Weigth -= item.Weigth;
+                Volume -= item.Volume;
 
-            Weigth -= item.Weigth;
-            Volume -= item.Volume;
+                RecalculateDate();
 
-            RecalculateDate();
+                boxes.Remove(item);
+            }
+            else
+            {
+                Console.WriteLine("This Box doesn't exist in this Pallet");
+            }
 
-            boxes.Remove(item);
         }
     }
 }
