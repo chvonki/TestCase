@@ -1,4 +1,3 @@
-
 namespace TestCase.Entities;
 
 public class Box : StorageObject
