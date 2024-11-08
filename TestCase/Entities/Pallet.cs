@@ -9,7 +9,7 @@ public class Pallet : StorageObject
         boxes = new();
     }
 
-    public bool IsBoxSizeFit(Box box)
+    public bool IsBoxSizeFit(Box box) // проверка на соответствие коробки размерам паллета, при условии, что коробки нельзя переворачивать
     {
         return box.Width <= Width && box.Depth <= Depth;
     }

@@ -6,5 +6,4 @@ public interface IDataCollector
 {
     public List<Box> GetBoxes();
     public List<Pallet> GetPallets();
-
 }

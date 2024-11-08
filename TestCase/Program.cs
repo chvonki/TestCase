@@ -36,16 +36,16 @@ using TestCase.Entities;
 // pallet.AddBox(box1);
 // pallet.AddBox(box2);
 // pallet.AddBox(box3);
-CsvCollector csvCollector = new();
-List<Box> boxes = csvCollector.GetBoxes();
+CsvCollector cCollector = CsvCollector.getCollector();
+List<Box> boxes = cCollector.GetBoxes();
 
-// foreach (var box in boxes)
-// {
-//     Console.WriteLine($"BOX: \nWidth = {box.Width}\nHeight = {box.Height}\nDepth = {box.Depth}");
-//     Console.WriteLine($"StorageLife = {box.StorageLife}\nVolume = {box.Volume}\nWeight = {box.Weigth}\n");
-// }
+foreach (var box in boxes)
+{
+    Console.WriteLine($"BOX: \nWidth = {box.Width}\nHeight = {box.Height}\nDepth = {box.Depth}");
+    Console.WriteLine($"StorageLife = {box.StorageLife}\nVolume = {box.Volume}\nWeight = {box.Weigth}\n");
+}
 
-List<Pallet> pallets = csvCollector.GetPallets();
+List<Pallet> pallets = cCollector.GetPallets();
 foreach (var pallet in pallets)
 {
     Console.WriteLine($"PALLET: \nId = {pallet.Id}\n");

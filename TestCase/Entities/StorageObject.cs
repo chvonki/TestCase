@@ -1,14 +1,25 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace TestCase.Entities;
 
-public abstract class StorageObject
+public class StorageObject
 {
+    [Required]
     public int Id { get; set; }
+
+    [Required]
     public double Width { get; set; } // ширина
+
+    [Required]
     public double Height { get; set; } // высота
+
+    [Required]
     public double Depth { get; set; } // глубина
+
     public double Weigth { get; set; } // вес
-    public DateOnly StorageLife { get; set; }
-    public bool IsStorageLife { get; set; } // флаг на тип даты (какая дата пришла)
+
+    public DateOnly? StorageLife { get; set; }
+    public bool? IsStorageLife { get; set; } // флаг на тип даты (какая дата пришла)
     public double Volume { get; set; } // объем
 
     public StorageObject(int id, double width, double height, double depth, double weigth)
