@@ -16,19 +16,19 @@ public class StorageObject
     [Required]
     public double Depth { get; set; } // глубина
 
-    public double Weigth { get; set; } // вес
+    public double Weight { get; set; } // вес
 
     public DateOnly? StorageLife { get; set; }
     public bool? IsStorageLife { get; set; } // флаг на тип даты (какая дата пришла)
     public double Volume { get; set; } // объем
 
-    public StorageObject(int id, double width, double height, double depth, double weigth)
+    public StorageObject(int id, double width, double height, double depth, double weight)
     {
         Id = id;
         Width = width;
         Height = height;
         Depth = depth;
-        Weigth = weigth;
+        Weight = weight;
         CalculateVolume();
     }
     public void CalculateVolume()
@@ -46,5 +46,10 @@ public class StorageObject
         {
             StorageLife = date.AddDays(100);
         }
+    }
+
+    public override string ToString()
+    {
+        return $"Id: {Id}\nWidth: {Width}, Height: {Height}, Depth: {Depth}\nWeight: {Weight}, Storage date: {StorageLife}\nVolume: {Volume}\n";
     }
 }

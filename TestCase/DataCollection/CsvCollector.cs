@@ -5,7 +5,7 @@ namespace TestCase.DataCollection;
 public class CsvCollector : IDataCollector
 {
     private static string _path_boxes = @"..\TestCase\Files\boxes.csv"; // ..\TestCase\Files\boxes.csv   ..\..\..\Files\boxes.csv
-    private static string _path_pallets = @"..\TestCase\Files\pallets.csv"; // ..\TestCase\Files\pallets.csv   ..\..\..\Files\pallets.csv
+    private static string _path_pallets = @"..\TestCase\Files\pallets.csv "; // ..\TestCase\Files\pallets.csv   ..\..\..\Files\pallets.csv
     private static StreamReader? reader;
 
     private static CsvCollector? collector;
@@ -39,12 +39,14 @@ public class CsvCollector : IDataCollector
                 var weightValid = double.TryParse(parameters[4], out var weight);
                 var storageLifeValid = DateOnly.TryParseExact(parameters[5], ["dd-MM-yyyy", "yyyy-MM-dd", "dd.MM.yyyy", "yyyy.MM.dd"], out var storageLife);
                 var isStorageLifeValid = Boolean.TryParse(parameters[6], out var isStorageLife);
+                var idPalletValid = int.TryParse(parameters[7], out var idPallet);
 
-                if (idValid && widthValid && heightValid && depthValid && weightValid && storageLifeValid && isStorageLifeValid)
+
+                if (idValid && widthValid && heightValid && depthValid && weightValid && storageLifeValid && isStorageLifeValid && idPalletValid)
                 {
-                    if (id > 0 && width > 0 && height > 0 && depth > 0 && weight > 0)
+                    if (id > 0 && width > 0 && height > 0 && depth > 0 && weight > 0 && idPallet > 0)
                     {
-                        var box = new Box(id, width, height, depth, weight, storageLife, isStorageLife);
+                        var box = new Box(id, width, height, depth, weight, storageLife, isStorageLife, idPallet);
                         boxes.Add(box);
                     }
                     else

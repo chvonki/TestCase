@@ -44,7 +44,10 @@ public class ConsoleCollector : IDataCollector
         Console.WriteLine("Is it Storage Life? (y/n): ");
         var isStorageLife = Convert.ToBoolean(Console.ReadLine());
 
-        var box = new Box(id, width, height, depth, weight, date, isStorageLife);
+        Console.WriteLine("Id Pallet:");
+        var idPallet = Convert.ToInt32(Console.ReadLine());
+
+        var box = new Box(id, width, height, depth, weight, date, isStorageLife, idPallet);
         boxes.Add(box);
 
         return boxes;

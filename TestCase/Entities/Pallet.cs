@@ -2,7 +2,7 @@ namespace TestCase.Entities;
 
 public class Pallet : StorageObject
 {
-    public List<Box>? boxes;
+    public List<Box>? boxes { get; }
     public Pallet(int id, double width, double height, double depth, double weight = 30.0)
     : base(id, width, height, depth, weight)
     {
@@ -24,7 +24,7 @@ public class Pallet : StorageObject
         if (IsBoxSizeFit(box))
         {
             boxes!.Add(box);
-            Weigth += box.Weigth;
+            Weight += box.Weight;
             Volume += box.Volume;
 
             RecalculateDate();
@@ -42,7 +42,7 @@ public class Pallet : StorageObject
             var item = boxes.First(b => b.Id == id);
             if (item is not null)
             {
-                Weigth -= item.Weigth;
+                Weight -= item.Weight;
                 Volume -= item.Volume;
 
                 RecalculateDate();
@@ -53,7 +53,6 @@ public class Pallet : StorageObject
             {
                 Console.WriteLine("This Box doesn't exist in this Pallet");
             }
-
         }
     }
 }
