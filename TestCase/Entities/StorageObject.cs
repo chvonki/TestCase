@@ -50,6 +50,6 @@ public class StorageObject
 
     public override string ToString()
     {
-        return $"Id: {Id}\nWidth: {Width}, Height: {Height}, Depth: {Depth}\nWeight: {Weight}, Storage date: {StorageLife}\nVolume: {Volume}\n";
+        return $"№: {Id}\nWidth: {Width}, Height: {Height}, Depth: {Depth}\nWeight: {Weight}, Storage date: {StorageLife}\nVolume: {Volume}\n";
     }
 }

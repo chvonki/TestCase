@@ -9,4 +9,9 @@ public class Box : StorageObject
         IdPallet = idPallet;
         CalculateStorageLife(date, isStorageLife);
     }
+
+    public override string ToString()
+    {
+        return "BOX " + base.ToString();
+    }
 }

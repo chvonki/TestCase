@@ -3,7 +3,7 @@ namespace TestCase.Entities;
 public class Group
 {
     public DateOnly? Date { get; set; }
-    public List<Pallet>? Pallets { get; set; }
+    public List<Pallet> Pallets { get; set; }
 
     public Group(DateOnly? date)
     {
@@ -18,11 +18,12 @@ public class Group
 
     public override string ToString()
     {
-        string result = "\n" + Date.ToString() + " ";
+        string result = "\nStorage Life: " + Date.ToString() + " ";
         if (Pallets is not null)
         {
             foreach (var pallet in Pallets)
             {
+                result += "\n";
                 result += pallet.ToString();
             }
         }

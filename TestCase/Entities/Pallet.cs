@@ -55,4 +55,9 @@ public class Pallet : StorageObject
             }
         }
     }
+
+    public override string ToString()
+    {
+        return "PALLETE " + base.ToString();
+    }
 }

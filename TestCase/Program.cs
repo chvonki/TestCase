@@ -1,41 +1,25 @@
-﻿using System.Runtime.CompilerServices;
+﻿using TestCase;
 using TestCase.DataCollection;
 using TestCase.Entities;
 using TestCase.FillPallet;
 
+CsvCollector csvCollector = CsvCollector.getCollector(); // могут быть созданы только один раз 
+ConsoleDataWriter consoleDataWrite = ConsoleDataWriter.getWriter();
 
-CsvCollector csvCollector = CsvCollector.getCollector();
-FillPallet filler = new FillPallet(csvCollector);
+FillPallet filler = new FillPallet(csvCollector); // класс дял заполнения паллет коробками, в качестве метода передается способ получения данных
 
 List<Pallet> pallets = new();
 List<Box> boxes = new();
 
+filler.FillPalletWithBoxes(ref pallets, ref boxes); // заполняем паллеты коробками
+consoleDataWrite.PrintAllPalletsAndBoxesInIt(pallets); // выводим все паллеты и коробки в них
 
-filler.FillPalletWithBoxes(ref pallets, ref boxes);
+SortPallets sortPallets = new SortPallets(); // класс для сортировки паллет
 
-// foreach (var pallet in pallets)
-// {
-//     Console.WriteLine("PALLET № " + pallet.ToString());
-//     if (pallet.boxes is not null)
-//     {
-//         foreach (var box in pallet.boxes)
-//         {
-//             Console.WriteLine("BOX № " + box.ToString());
-//         }
-//     }
-// }
+var orderedAndSortedPallets = sortPallets.GroupPalletsByStorageLife(pallets); // группировка паллет по сроку годности, сортировка по возрастанию срока годности
+consoleDataWrite.PrintOrderedPalletsByStorageLife(orderedAndSortedPallets);
 
-SortPallets sortPallets = new SortPallets();
-var sortlist = sortPallets.GroupPalletsByStorageLife(pallets);
+var topThreePallet = sortPallets.SortByMaxStorageLifeBox(pallets); // 3 паллеты, в которых коробки с наибольшим сроком годности
+consoleDataWrite.PrintTopThreePallets(topThreePallet);
 
-var TopThreePallet = sortPallets.SortByMaxStorageLifeBox(pallets);
-
-foreach (var line in TopThreePallet)
-{
-    Console.WriteLine(line.ToString());
-    foreach (var box in line.boxes!)
-    {
-        Console.WriteLine(box.ToString());
-    }
-}
 

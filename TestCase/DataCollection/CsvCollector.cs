@@ -4,8 +4,8 @@ namespace TestCase.DataCollection;
 
 public class CsvCollector : IDataCollector
 {
-    private static string _path_boxes = @"..\TestCase\Files\boxes.csv"; // ..\TestCase\Files\boxes.csv   ..\..\..\Files\boxes.csv
-    private static string _path_pallets = @"..\TestCase\Files\pallets.csv "; // ..\TestCase\Files\pallets.csv   ..\..\..\Files\pallets.csv
+    private static string _path_boxes = @"..\TestCase\Files\boxes.csv"; // для debug-мода строка:  ..\..\..\Files\boxes.csv
+    private static string _path_pallets = @"..\TestCase\Files\pallets.csv "; // для debug-мода строка:  ..\..\..\Files\pallets.csv
     private static StreamReader? reader;
 
     private static CsvCollector? collector;
