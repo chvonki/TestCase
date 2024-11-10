@@ -2,9 +2,9 @@ using TestCase.Entities;
 
 namespace TestCase.FillPallet;
 
-public class SortPallets
+public static class SortPallets
 {
-    public List<Group> GroupPalletsByStorageLife(List<Pallet> pallets)
+    public static List<Group> GroupPalletsByStorageLife(List<Pallet> pallets)
     {
         List<Group> groups = new();
         var storageLifesDictinct = pallets.Select(p => p.StorageLife).Distinct().ToList(); // выбираем уникальные даты по всем паллетам
@@ -25,22 +25,22 @@ public class SortPallets
         return groups;
     }
 
-    public void SortGroupsByStorageLife(List<Group> groups)
+    public static void SortGroupsByStorageLife(List<Group> groups)
     {
         groups = groups.OrderBy(g => g.Date).ToList();
     }
 
-    public void SortPalletsByWeight(List<Pallet> pallets)
+    public static void SortPalletsByWeight(List<Pallet> pallets)
     {
         pallets = pallets!.OrderBy(p => p.Weight).ToList();
     }
 
-    public void SortPalletsByVolume(List<Pallet> pallets)
+    public static void SortPalletsByVolume(List<Pallet> pallets)
     {
         pallets = pallets!.OrderBy(p => p.Volume).ToList();
     }
 
-    public List<Pallet> SortByMaxStorageLifeBox(List<Pallet> pallets)
+    public static List<Pallet> SortByMaxStorageLifeBox(List<Pallet> pallets)
     {
         var selectedPallets = pallets.Where(p => p.boxes!.Any()) // выбираем коробки во возрастанию срока годности и берем только 3 их них
                                      .OrderByDescending(p => p.boxes!.Max(b => b.StorageLife))
