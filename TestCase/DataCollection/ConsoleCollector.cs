@@ -4,19 +4,6 @@ namespace TestCase.DataCollection;
 
 public class ConsoleCollector : IDataCollector
 {
-    private static ConsoleCollector? collector;
-
-    protected ConsoleCollector()
-    {
-    }
-
-    public static ConsoleCollector getCollector()
-    {
-        if (collector == null)
-            collector = new ConsoleCollector();
-        return collector;
-    }
-
     public List<Box> GetBoxes()
     {
         List<Box>? boxes = new();

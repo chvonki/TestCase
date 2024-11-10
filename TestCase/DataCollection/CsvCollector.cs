@@ -4,31 +4,18 @@ namespace TestCase.DataCollection;
 
 public class CsvCollector : IDataCollector
 {
-    private static string _path_boxes = @"..\TestCase\Files\boxes.csv"; // для debug-мода строка:  ..\..\..\Files\boxes.csv
-    private static string _path_pallets = @"..\TestCase\Files\pallets.csv "; // для debug-мода строка:  ..\..\..\Files\pallets.csv
-    private static StreamReader? reader;
-
-    private static CsvCollector? collector;
-
-    protected CsvCollector()
-    {
-    }
-
-    public static CsvCollector getCollector()
-    {
-        if (collector == null)
-            collector = new CsvCollector();
-        return collector;
-    }
+    public string _path_boxes = @"..\TestCase\Files\boxes.csv";
+    private string _path_pallets = @"..\TestCase\Files\pallets.csv";
+    private StreamReader? _reader;
 
     public List<Box> GetBoxes()
     {
         List<Box> boxes = new();
-        using (reader = new StreamReader(_path_boxes))
+        using (_reader = new StreamReader(_path_boxes))
         {
-            string[]? parameters = reader.ReadLine()!.Split(';'); // игнорирование заголовков в csv файле
+            string[]? parameters = _reader.ReadLine()!.Split(';'); // игнорирование заголовков в csv файле
             string? line;
-            while ((line = reader.ReadLine()) is not null)
+            while ((line = _reader.ReadLine()) is not null)
             {
                 parameters = line.Split(";");
 
@@ -65,12 +52,11 @@ public class CsvCollector : IDataCollector
     public List<Pallet> GetPallets()
     {
         List<Pallet> pallets = new();
-
-        using (reader = new StreamReader(_path_pallets))
+        using (_reader = new StreamReader(_path_pallets))
         {
-            string[]? parameters = reader.ReadLine()!.Split(';');
+            string[]? parameters = _reader.ReadLine()!.Split(';');
             string? line;
-            while ((line = reader.ReadLine()) is not null)
+            while ((line = _reader.ReadLine()) is not null)
             {
                 parameters = line.Split(";");
 
