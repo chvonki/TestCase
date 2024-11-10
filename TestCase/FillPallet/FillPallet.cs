@@ -16,9 +16,9 @@ public class FillPallet
     {
         boxes = _dataCollector.GetBoxes();
         pallets = _dataCollector.GetPallets();
-        if (pallets != null)
+        if (pallets.Count != 0)
         {
-            if (boxes != null)
+            if (boxes.Count != 0)
             {
                 foreach (var box in boxes)
                 {
