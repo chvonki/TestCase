@@ -41,7 +41,6 @@ public class CsvCollector : IDataCollector
                 var isStorageLifeValid = Boolean.TryParse(parameters[6], out var isStorageLife);
                 var idPalletValid = int.TryParse(parameters[7], out var idPallet);
 
-
                 if (idValid && widthValid && heightValid && depthValid && weightValid && storageLifeValid && isStorageLifeValid && idPalletValid)
                 {
                     if (id > 0 && width > 0 && height > 0 && depth > 0 && weight > 0 && idPallet > 0)

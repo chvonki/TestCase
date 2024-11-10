@@ -16,10 +16,16 @@ public class FillPallet
     {
         boxes = _dataCollector.GetBoxes();
         pallets = _dataCollector.GetPallets();
-        foreach (var box in boxes)
+        if (pallets != null)
         {
-            var pallet = pallets.First(p => p.Id == box.IdPallet);
-            pallet.AddBox(box);
+            if (boxes != null)
+            {
+                foreach (var box in boxes)
+                {
+                    var pallet = pallets.First(p => p.Id == box.IdPallet);
+                    pallet.AddBox(box);
+                }
+            }
         }
     }
 

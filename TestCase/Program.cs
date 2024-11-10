@@ -6,7 +6,7 @@ using TestCase.FillPallet;
 CsvCollector csvCollector = CsvCollector.getCollector(); // могут быть созданы только один раз 
 ConsoleDataWriter consoleDataWrite = ConsoleDataWriter.getWriter();
 
-FillPallet filler = new FillPallet(csvCollector); // класс дял заполнения паллет коробками, в качестве метода передается способ получения данных
+FillPallet filler = new FillPallet(csvCollector); // класс для заполнения паллет коробками, в качестве метода передается способ получения данных
 
 List<Pallet> pallets = new();
 List<Box> boxes = new();
